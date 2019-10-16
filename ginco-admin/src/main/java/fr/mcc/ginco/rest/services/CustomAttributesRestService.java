@@ -75,7 +75,6 @@ import fr.mcc.ginco.services.IThesaurusTermService;
  */
 @Service
 @Path("/customattributesservice")
-@PreAuthorize("isAuthenticated()")
 public class CustomAttributesRestService {
 	@Inject
 	@Named("customConceptAttributeTypeService")
@@ -142,7 +141,6 @@ public class CustomAttributesRestService {
 	@Path("/updateConceptAttributeTypes")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@PreAuthorize("hasPermission(#list, '0')")
 	public List<GenericCustomAttributeTypeView> updateConceptAttributeTypes(
 			List<GenericCustomAttributeTypeView> list) {
 		List<CustomConceptAttributeType> newList = new ArrayList<CustomConceptAttributeType>();
@@ -165,7 +163,6 @@ public class CustomAttributesRestService {
 	@POST
 	@Path("/deleteConceptAttributeTypes")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@PreAuthorize("hasPermission(#list, '0')")
 	public void deleteConceptAttributeTypes(
 			List<GenericCustomAttributeTypeView> list) {
 		for (GenericCustomAttributeTypeView customConceptAttributeType : list) {
@@ -206,7 +203,6 @@ public class CustomAttributesRestService {
 	@Path("/updateTermAttributeTypes")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@PreAuthorize("hasPermission(#list, '0')")
 	public List<GenericCustomAttributeTypeView> updateTermAttributeTypes(
 			List<GenericCustomAttributeTypeView> list) {
 		List<CustomTermAttributeType> newList = new ArrayList<CustomTermAttributeType>();
@@ -227,7 +223,6 @@ public class CustomAttributesRestService {
 	@POST
 	@Path("/deleteTermAttributeTypes")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@PreAuthorize("hasPermission(#list, '0')")
 	public void deleteTermAttributeTypes(
 			List<GenericCustomAttributeTypeView> list) {
 		for (GenericCustomAttributeTypeView customConceptAttributeType : list) {

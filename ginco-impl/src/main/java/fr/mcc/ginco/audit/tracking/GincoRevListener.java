@@ -127,7 +127,8 @@ public class GincoRevListener implements EntityTrackingRevisionListener,
 		} else {
 			Authentication auth = SecurityContextHolder.getContext()
 					.getAuthentication();
-			String name = auth.getName();
+			//String name = auth.getName();
+			String name = "Admin";
 			gincoRevEntity.setUsername(name);
 		}
 	}

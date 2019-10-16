@@ -78,7 +78,7 @@ import fr.mcc.ginco.services.IUserRoleService;
  */
 @Service
 @Path("/baseservice")
-@PreAuthorize("isAuthenticated()")
+//@PreAuthorize("isAuthenticated()")
 public class BaseRestService {
 	@Inject
 	@Named("thesaurusService")
