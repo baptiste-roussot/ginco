@@ -105,7 +105,7 @@ import java.text.DateFormat;
 @Service
 @Path("/thesaurusconceptservice")
 @Produces({ MediaType.APPLICATION_JSON })
-// @PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 public class ThesaurusConceptRestService {
 
 	@Inject
@@ -203,7 +203,7 @@ public class ThesaurusConceptRestService {
 	@POST
 	@Path("/updateConcept")
 	@Consumes({ MediaType.APPLICATION_JSON })
-//	@PreAuthorize("hasPermission(#conceptView, '0') or hasPermission(#conceptView, '1')")
+	@PreAuthorize("hasPermission(#conceptView, '0') or hasPermission(#conceptView, '1')")
 	public ThesaurusConceptView updateConcept(ThesaurusConceptView conceptView) {
 
 //		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -493,7 +493,7 @@ public class ThesaurusConceptRestService {
 	@POST
 	@Path("/destroyConcept")
 	@Consumes({ MediaType.APPLICATION_JSON })
-//	@PreAuthorize("hasPermission(#thesaurusViewJAXBElement, '0') or hasPermission(#thesaurusViewJAXBElement, '1')")
+	@PreAuthorize("hasPermission(#thesaurusViewJAXBElement, '0') or hasPermission(#thesaurusViewJAXBElement, '1')")
 	public void destroyConcept(ThesaurusConceptView thesaurusViewJAXBElement) {
 		ThesaurusConcept object = thesaurusConceptService
 				.getThesaurusConceptById(thesaurusViewJAXBElement
