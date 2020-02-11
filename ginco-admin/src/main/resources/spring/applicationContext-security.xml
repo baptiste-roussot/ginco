@@ -91,6 +91,11 @@
 			entry-point-ref="authenticationEntryPoint" />
 	</security:http>
 
+	<security:http pattern="/services/ui/importservice/**" use-expressions="true" auto-config="true">
+		<intercept-url pattern="/**" access="isAuthenticated()"/>
+		<security:http-basic entry-point-ref="authenticationEntryPoint" />
+	</security:http>
+
 	<beans:bean id="authenticationEntryPoint"
 		class="org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint">
 		<beans:property name="realmName" value="admin realm" />
