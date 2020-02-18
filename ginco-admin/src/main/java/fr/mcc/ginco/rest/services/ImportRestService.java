@@ -172,7 +172,7 @@ public class ImportRestService {
 	public String uploadFile(MultipartBody body,
 	                         @Context HttpServletRequest request) throws IOException {
 		Attachment file = body.getAttachment(ATTACHMENT_NAME);
-		String content = IOUtils.toString(file.getDataHandler().getInputStream(),"UTF-8" ) ;
+		String content = IOUtils.toString(file.getDataHandler().getInputStream(),"UTF-8" );
 		String fileName = file.getDataHandler().getName();
 		File tempdir = (File) servletContext
 				.getAttribute("javax.servlet.context.tempdir");
@@ -224,7 +224,7 @@ public class ImportRestService {
 			throws IOException {
 		AuditContext.disableAudit();
 		Attachment file = body.getAttachment(ATTACHMENT_NAME);
-		String content = file.getObject(String.class);
+		String content = IOUtils.toString(file.getDataHandler().getInputStream(),"UTF-8" );
 		String fileName = file.getDataHandler().getName();
 		File tempDir = (File) servletContext
 				.getAttribute("javax.servlet.context.tempdir");
