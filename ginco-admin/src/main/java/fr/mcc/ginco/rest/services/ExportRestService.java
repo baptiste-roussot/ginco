@@ -36,8 +36,11 @@ package fr.mcc.ginco.rest.services;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -170,7 +173,9 @@ public class ExportRestService {
 		try {
 			temp = File.createTempFile("pattern", ".suffix");
 			temp.deleteOnExit();
-			out = new BufferedWriter(new FileWriter(temp));
+
+			out = new BufferedWriter
+					(new OutputStreamWriter(new FileOutputStream(temp.getPath()), StandardCharsets.UTF_8));
 
 			if (alphabetical) {
 				out.write(LabelUtil.getResourceLabel("export-alphabetical")
