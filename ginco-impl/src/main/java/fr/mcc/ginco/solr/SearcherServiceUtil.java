@@ -35,6 +35,7 @@
 package fr.mcc.ginco.solr;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -156,8 +157,11 @@ public class SearcherServiceUtil {
 		}
 		result.setLanguages(languages);
 		List<String> broaders = new ArrayList<String>();
-		for (Object broader : doc.getFieldValues(SolrField.PARENT_CONCEPT)) {
-			broaders.add(broader.toString());
+		Collection<Object> values = doc.getFieldValues(SolrField.PARENT_CONCEPT);
+		if (values != null) {
+			for (Object broader : values) {
+				broaders.add(broader.toString());
+			}
 		}
 		result.setBroaders(broaders);
 		return result;
