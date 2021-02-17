@@ -34,7 +34,6 @@
  */
 package fr.mcc.ginco.rest.services;
 
-import fr.mcc.ginco.imports.ginco.idgenerator.GincoTermIdGenerator;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -104,7 +103,7 @@ import fr.mcc.ginco.solr.IThesaurusIndexerService;
 public class ImportRestService {
 	private static final String ATTACHMENT_NAME = "import-file-path";
 
-	private Logger logger  = LoggerFactory.getLogger(GincoTermIdGenerator.class);
+	private Logger logger  = LoggerFactory.getLogger(ImportRestService.class);
 
 	@Inject
 	@Context
